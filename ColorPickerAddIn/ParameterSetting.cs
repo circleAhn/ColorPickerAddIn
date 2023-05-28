@@ -12,14 +12,11 @@ namespace ColorPickerAddIn
         public const int rgbUpperBound = 255;
         public const int numberOfClusters = 7;
 
-        Dictionary<string, int> dict = new Dictionary<string, int>();
 
     }
 
     public class Setting
     {
-        public string Option { get; set; }
-        public int NumberOfClusters { get; set; }
         public int RedLowerBound { get; set; }
         public int RedUpperBound { get; set; }
         public int GreenLowerBound { get; set; }
@@ -28,24 +25,20 @@ namespace ColorPickerAddIn
         public int BlueUpperBound { get; set; }
 
 
-        public Setting(int numberOfClusters = 10,
-            int redLowerBound = 0, int redUpperBound = 255,
+        public Setting(int redLowerBound = 0, int redUpperBound = 255,
             int greenLowerBound = 0, int greenUpperBound = 255,
             int blueLowerBound = 0, int blueUpperBound = 255)
         {
-            SetParameters(numberOfClusters,
-                redLowerBound, redUpperBound,
+            SetParameters(redLowerBound, redUpperBound,
                 greenLowerBound, greenUpperBound,
                 blueLowerBound, blueUpperBound);
         }
 
 
-        public void SetParameters(int numberOfClusters = 10,
-            int redLowerBound = 0, int redUpperBound = 255,
+        public void SetParameters(int redLowerBound = 0, int redUpperBound = 255,
             int greenLowerBound = 0, int greenUpperBound = 255,
             int blueLowerBound = 0, int blueUpperBound = 255)
         {
-            NumberOfClusters = numberOfClusters;
             RedLowerBound = redLowerBound;
             RedUpperBound = redUpperBound;
             GreenLowerBound = greenLowerBound;
@@ -56,7 +49,7 @@ namespace ColorPickerAddIn
         }
 
 
-        
+
 
     }
 }

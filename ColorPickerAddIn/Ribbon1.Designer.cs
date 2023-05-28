@@ -41,38 +41,52 @@ namespace ColorPickerAddIn
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl5 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.editBox1 = this.Factory.CreateRibbonEditBox();
+            this.numberOfClustersBox = this.Factory.CreateRibbonEditBox();
+            this.GetBitmap = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
             this.dropDown1 = this.Factory.CreateRibbonDropDown();
             this.button1 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
+            this.group2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.group1);
-            this.tab1.Label = "TabAddIns";
+            this.tab1.Groups.Add(this.group2);
+            this.tab1.Label = "ColorPicker_v0";
             this.tab1.Name = "tab1";
             // 
             // group1
             // 
-            this.group1.Items.Add(this.editBox1);
-            this.group1.Items.Add(this.dropDown1);
-            this.group1.Items.Add(this.button1);
-            this.group1.Label = "컬러픽커";
+            this.group1.Items.Add(this.numberOfClustersBox);
+            this.group1.Items.Add(this.GetBitmap);
+            this.group1.Label = "컬러피커";
             this.group1.Name = "group1";
             // 
-            // editBox1
+            // numberOfClustersBox
             // 
-            this.editBox1.Label = "색상 수";
-            this.editBox1.Name = "editBox1";
-            this.editBox1.Text = "7";
-            this.editBox1.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBox1_TextChanged);
+            this.numberOfClustersBox.Label = "추출색상 수";
+            this.numberOfClustersBox.Name = "numberOfClustersBox";
+            this.numberOfClustersBox.Text = "7";
+            this.numberOfClustersBox.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.editBox1_TextChanged);
+            // 
+            // GetBitmap
+            // 
+            this.GetBitmap.Label = "사진끄집어와";
+            this.GetBitmap.Name = "GetBitmap";
+            this.GetBitmap.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.GetBitmap_Click);
+            // 
+            // group2
+            // 
+            this.group2.Items.Add(this.dropDown1);
+            this.group2.Items.Add(this.button1);
+            this.group2.Label = "랜덤팔레트생성";
+            this.group2.Name = "group2";
             // 
             // dropDown1
             // 
@@ -81,17 +95,13 @@ namespace ColorPickerAddIn
             ribbonDropDownItemImpl3.Label = "어둡게";
             ribbonDropDownItemImpl4.Label = "쿨톤";
             ribbonDropDownItemImpl5.Label = "웜톤";
-            ribbonDropDownItemImpl6.Label = "파스텔";
-            ribbonDropDownItemImpl7.Label = "대비";
-            ribbonDropDownItemImpl8.Label = "완죤 랜덤";
+            ribbonDropDownItemImpl6.Label = "완죤 랜덤";
             this.dropDown1.Items.Add(ribbonDropDownItemImpl1);
             this.dropDown1.Items.Add(ribbonDropDownItemImpl2);
             this.dropDown1.Items.Add(ribbonDropDownItemImpl3);
             this.dropDown1.Items.Add(ribbonDropDownItemImpl4);
             this.dropDown1.Items.Add(ribbonDropDownItemImpl5);
             this.dropDown1.Items.Add(ribbonDropDownItemImpl6);
-            this.dropDown1.Items.Add(ribbonDropDownItemImpl7);
-            this.dropDown1.Items.Add(ribbonDropDownItemImpl8);
             this.dropDown1.Label = "색상 유형";
             this.dropDown1.Name = "dropDown1";
             this.dropDown1.SelectionChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dropDown1_SelectionChanged);
@@ -112,6 +122,8 @@ namespace ColorPickerAddIn
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -121,8 +133,10 @@ namespace ColorPickerAddIn
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox editBox1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox numberOfClustersBox;
         internal Microsoft.Office.Tools.Ribbon.RibbonDropDown dropDown1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton GetBitmap;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
     }
 
     partial class ThisRibbonCollection
